@@ -8,11 +8,15 @@
     <artifactId>Alibaba</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>基于SpringCloud Alibaba实现微服务架构</description>
+    <modules>
+        <module>Customer-Service</module>
+    </modules>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--Java 8-->
         <java.version>1.8</java.version>
         <!--Spring Boot版本-->
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
@@ -20,7 +24,18 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <!--Spring Cloud Alibaba版本-->
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <!--spring-boot-admin 版本-->
         <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
+        <!--Mybatis plus 版本-->
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <!--lombok版本-->
+        <lombok.version>1.18.12</lombok.version>
+        <!--Swagger版本-->
+        <swagger.version>2.8.0</swagger.version>
+        <!--mysql驱动版本-->
+        <mysql.version>8.0.21</mysql.version>
+        <!--guava版本-->
+        <guava.version>29.0-jre</guava.version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -56,10 +71,53 @@
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${spring-boot-admin.version}</version>
             </dependency>
+            <!--mybatis-plus版本-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--mybatis plus 自动生成版本-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.12</version>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!--Swagger-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+                <!--排除默认引入得guava，下面会单独引入-->
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--guava-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <!--mysql版本定义-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
