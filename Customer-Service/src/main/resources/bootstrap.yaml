@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: customer-service
+  cloud:
+    nacos:
+      discovery:
+        #注册中心地址
+        server-addr: 127.0.0.1:8848
+        #命名空间
+        namespace: fac8f78b-62bb-49d9-8893-d918c41f79fd
+        #分组
+        group: dev
+      config:
+        server-addr: 127.0.0.1:8848
+        #是否从配置中心获取配置，默认开启
+        enabled: true
+        #默认true
+        refresh-enabled: true
+        #配置文件后缀
+        file-extension: yaml
+        #配置文件命名空间
+        namespace: fac8f78b-62bb-49d9-8893-d918c41f79fd
+        #分组
+        group: dev
+        #配置文件名称-dataId
+        name: customer-service
+        #字符编码格式
+        encode: UTF-8
+        #读取超时时间
+        timeout: 3000
+
+
