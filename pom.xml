@@ -14,6 +14,7 @@
         <module>micro-auth-service</module>
         <module>micro-common-service</module>
         <module>micro-basic-config</module>
+        <module>micro-sms-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -42,6 +43,8 @@
         <guava.version>29.0-jre</guava.version>
         <!--JWT令牌-->
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
+        <!--mybatis-springboot版本-->
+        <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -77,6 +80,12 @@
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${spring-boot-admin.version}</version>
             </dependency>
+            <!--mysql版本定义-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
             <!--mybatis-plus版本-->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -88,6 +97,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
             </dependency>
             <!--lombok-->
             <dependency>
@@ -118,12 +132,6 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
-            </dependency>
-            <!--mysql版本定义-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
             </dependency>
             <!--JWT令牌操作-->
             <dependency>

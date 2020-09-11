@@ -14,11 +14,6 @@
     <description>微服务网关</description>
 
     <dependencies>
-        <!--web依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!--端点监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
