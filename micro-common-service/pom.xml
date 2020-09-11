@@ -13,6 +13,13 @@
     <packaging>jar</packaging>
     <description>基础、公共模块</description>
 
+    <dependencies>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 
 

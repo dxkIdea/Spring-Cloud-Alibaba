@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author: dingxingkai
  * @Version: 1.0
  */
-@Api(tags = "客户基本操作")
+@Api(tags = "客户基本操作",value = "客户基本操作-CURD")
 @RestController
 public class CustomerController {
     @Autowired
@@ -27,7 +27,7 @@ public class CustomerController {
      * @Date: 2020/9/10 20:39
     **/
     @PostMapping(value = "/insertOne")
-    @ApiOperation(value = "添加新客户",httpMethod = "POST")
+    @ApiOperation(value = "添加新客户", tags = "客户注册（添加操作）",httpMethod = "POST")
     public String insertCustomer(@RequestParam(name = "userName") String userName,
                                  @RequestParam(name = "passWord") String passWord) {
         return customerService.insertCustomer(userName,passWord);

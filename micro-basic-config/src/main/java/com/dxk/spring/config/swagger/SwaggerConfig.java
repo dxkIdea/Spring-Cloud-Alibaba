@@ -2,6 +2,7 @@ package com.dxk.spring.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.VendorExtension;
@@ -30,6 +31,7 @@ public class SwaggerConfig {
      * @return
      */
     @Bean
+    @DependsOn(value = "SwaggerInfo")
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo());
