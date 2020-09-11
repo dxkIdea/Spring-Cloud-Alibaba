@@ -12,6 +12,8 @@
         <module>micro-customer-service</module>
         <module>micro-gateway-server</module>
         <module>micro-auth-service</module>
+        <module>micro-common-service</module>
+        <module>micro-basic-config</module>
     </modules>
     <packaging>pom</packaging>
 
