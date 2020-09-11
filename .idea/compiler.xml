@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Customer-Service" />
+        <module name="micro-customer-service" />
+        <module name="micro-gateway-server" />
+        <module name="micro-auth-service" />
       </profile>
     </annotationProcessing>
   </component>

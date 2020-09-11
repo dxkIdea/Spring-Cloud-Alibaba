@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Customer-Service</artifactId>
+    <artifactId>micro-customer-service</artifactId>
     <packaging>jar</packaging>
     <description>客户服务</description>
 

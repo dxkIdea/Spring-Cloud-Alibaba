@@ -9,7 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <description>基于SpringCloud Alibaba实现微服务架构</description>
     <modules>
-        <module>Customer-Service</module>
+        <module>micro-customer-service</module>
+        <module>micro-gateway-server</module>
+        <module>micro-auth-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -36,6 +38,8 @@
         <mysql.version>8.0.21</mysql.version>
         <!--guava版本-->
         <guava.version>29.0-jre</guava.version>
+        <!--JWT令牌-->
+        <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -118,6 +122,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <!--JWT令牌操作-->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
