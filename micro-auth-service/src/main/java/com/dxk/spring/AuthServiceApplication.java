@@ -5,16 +5,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * @ClassName: CustomerApplication
- * @Description: 客户服务启动类
- * @Date: 2020/9/10 20:14
+
+/**
+ * @ClassName: AuthServiceApplication
+ * @Description:
+ * @Date: 2020/9/11 14:05
  * @Author: dingxingkai
  * @Version: 1.0
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-public class CustomerApplication {
+public class AuthServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApplication.class,args);
+        SpringApplication.run(AuthServiceApplication.class,args);
     }
 }
