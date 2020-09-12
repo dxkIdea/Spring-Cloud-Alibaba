@@ -1,8 +1,11 @@
 package com.dxk.spring.config.swagger;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.VendorExtension;
@@ -26,6 +29,9 @@ public class SwaggerConfig {
     @Resource
     private SwaggerInfo swaggerInfo;
 
+    @Value(value = "${swagger2.apiInfo.basicPackage}")
+    private String basicPackage;
+
     /**
      * 配置Swagger得 Docket bean实例
      * @return
@@ -34,7 +40,11 @@ public class SwaggerConfig {
     @DependsOn(value = "SwaggerInfo")
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo());
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(basicPackage))
+                .paths(PathSelectors.any())
+                .build();
     }
 
     /**

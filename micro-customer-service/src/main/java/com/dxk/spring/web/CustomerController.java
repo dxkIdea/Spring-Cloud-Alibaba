@@ -4,9 +4,12 @@ import com.dxk.spring.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @ClassName: CustomerController
@@ -20,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+    @Resource
+    private RedisTemplate<String,Object> redisTemplate;
 
     /**
      * @Author: dingxingkai
@@ -27,9 +32,10 @@ public class CustomerController {
      * @Date: 2020/9/10 20:39
     **/
     @PostMapping(value = "/insertOne")
-    @ApiOperation(value = "添加新客户", tags = "客户注册（添加操作）",httpMethod = "POST")
+    @ApiOperation(value = "添加新客户", tags = "客户注册",httpMethod = "POST")
     public String insertCustomer(@RequestParam(name = "userName") String userName,
                                  @RequestParam(name = "passWord") String passWord) {
+        redisTemplate.opsForValue().set("name","dxk");
         return customerService.insertCustomer(userName,passWord);
     }
 }
