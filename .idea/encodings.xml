@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/micro-common-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-customer-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-customer-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/micro-email-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/micro-email-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-gateway-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-gateway-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-sms-service/src/main/java" charset="UTF-8" />
