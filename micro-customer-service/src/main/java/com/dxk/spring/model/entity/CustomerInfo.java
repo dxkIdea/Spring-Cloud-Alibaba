@@ -1,10 +1,11 @@
-package com.dxk.spring.bean;
+package com.dxk.spring.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -18,7 +19,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Customer {
+public class CustomerInfo {
     /**
      * 主键ID
      */
@@ -27,11 +28,13 @@ public class Customer {
     /**
      * 客户名称
      */
+    @NotBlank(message = "客户名称不可为空")
     private String name;
 
     /**
      * 密码
      */
+    @NotBlank(message = "密码不可为空")
     private String passWord;
 
     /**

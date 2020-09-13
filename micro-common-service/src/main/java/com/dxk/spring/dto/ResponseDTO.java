@@ -1,5 +1,6 @@
 package com.dxk.spring.dto;
 
+import com.dxk.spring.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ResponseDTO <T>{
+public class ResponseDTO{
     /**
      * 响应编码
      */
@@ -28,5 +29,65 @@ public class ResponseDTO <T>{
     /**
      * 响应信息
      */
-    private T resultData;
+    private Object resultData;
+
+    /**
+     * @Description: 成功
+     * @return: com.dxk.spring.dto.ResponseDTO
+     * @date: 2020/9/12 22:32
+     * @author: dingxingkai
+     **/
+    public static ResponseDTO SUCCESS() {
+        return ResponseDTO.builder()
+                .resultCode(Status.SUCCESS.getCode())
+                .resultMsg(Status.SUCCESS.getMessage())
+                .build();
+    }
+
+    /**
+     * @Description: 成功
+     * @param resultData: 返回信息
+     * @return: com.dxk.spring.dto.ResponseDTO
+     * @date: 2020/9/12 22:32
+     * @author: dingxingkai
+     **/
+    public static ResponseDTO SUCCESS(Object resultData) {
+        return ResponseDTO.builder()
+                .resultCode(Status.SUCCESS.getCode())
+                .resultMsg(Status.SUCCESS.getMessage())
+                .resultData(resultData)
+                .build();
+    }
+
+    /**
+     * @Description: 异常返回
+     * @param status: 异常状态码
+     * @param resultMsg: 异常信息
+     * @return: com.dxk.spring.dto.ResponseDTO
+     * @date: 2020/9/12 22:35
+     * @author: dingxingkai
+     **/
+    public static ResponseDTO FALL(Integer status, String resultMsg) {
+        return ResponseDTO.builder()
+                .resultCode(status)
+                .resultMsg(resultMsg)
+                .build();
+    }
+
+    /**
+     * @Description: 异常返回
+     * @param status: 异常状态码
+     * @param resultMsg: 异常信息
+     * @param resultData: 异常返回内容
+     * @return: com.dxk.spring.dto.ResponseDTO
+     * @date: 2020/9/12 22:35
+     * @author: dingxingkai
+     **/
+    public static ResponseDTO FALL(Integer status, String resultMsg, Object resultData) {
+        return ResponseDTO.builder()
+                .resultCode(status)
+                .resultMsg(resultMsg)
+                .resultData(resultData)
+                .build();
+    }
 }
