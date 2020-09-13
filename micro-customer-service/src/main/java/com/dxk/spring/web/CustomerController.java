@@ -1,15 +1,15 @@
 package com.dxk.spring.web;
 
+import com.dxk.spring.model.entity.CustomerInfo;
+import com.dxk.spring.dto.ResponseDTO;
 import com.dxk.spring.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: CustomerController
@@ -23,8 +23,6 @@ import javax.annotation.Resource;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
-    @Resource
-    private RedisTemplate<String,Object> redisTemplate;
 
     /**
      * @Author: dingxingkai
@@ -33,9 +31,19 @@ public class CustomerController {
     **/
     @PostMapping(value = "/insertOne")
     @ApiOperation(value = "添加新客户", tags = "客户注册",httpMethod = "POST")
-    public String insertCustomer(@RequestParam(name = "userName") String userName,
-                                 @RequestParam(name = "passWord") String passWord) {
-        redisTemplate.opsForValue().set("name","dxk");
-        return customerService.insertCustomer(userName,passWord);
+    public ResponseDTO insertCustomer(@RequestBody CustomerInfo customerInfo) {
+        return customerService.insertCustomer(customerInfo);
+    }
+
+    /**
+     * @Author: dingxingkai
+     * @Description: 客户登录
+     * @Date: 2020/9/10 20:39
+     **/
+    @PostMapping(value = "/login")
+    @ApiOperation(value = "客户登录接口", tags = "客户登录接口",httpMethod = "POST")
+    public ResponseDTO customerLogin(@RequestParam(name = "userName") String userName,
+                                      @RequestParam(name = "passWord") String passWord) {
+        return customerService.customerLoginOn(userName,passWord);
     }
 }

@@ -12,9 +12,13 @@
         <module name="micro-gateway-server" />
         <module name="micro-auth-service" />
         <module name="micro-common-service" />
+        <module name="micro-customerInfo-service" />
         <module name="micro-customer-service" />
         <module name="micro-sms-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="micro-customerInfo-service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -33,7 +33,7 @@
         <!--spring-boot-admin 版本-->
         <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
         <!--Mybatis plus 版本-->
-        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <!--lombok版本-->
         <lombok.version>1.18.12</lombok.version>
         <!--Swagger版本-->
@@ -44,8 +44,8 @@
         <guava.version>29.0-jre</guava.version>
         <!--JWT令牌-->
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
-        <!--mybatis-springboot版本-->
-        <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
+        <!--fastJson版本-->
+        <fastJson-version>1.2.70</fastJson-version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -90,7 +90,7 @@
             <!--mybatis-plus版本-->
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <!--mybatis plus 自动生成版本-->
@@ -126,6 +126,12 @@
                 <groupId>com.nimbusds</groupId>
                 <artifactId>nimbus-jose-jwt</artifactId>
                 <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+            <!--FastJson 序列化工具-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastJson-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
