@@ -1,7 +1,7 @@
 package com.dxk.spring.web;
 
 import com.dxk.spring.model.entity.CustomerInfo;
-import com.dxk.spring.dto.ResponseDTO;
+import com.dxk.spring.vo.ResultVO;
 import com.dxk.spring.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,7 +31,7 @@ public class CustomerController {
     **/
     @PostMapping(value = "/insertOne")
     @ApiOperation(value = "添加新客户", tags = "客户注册",httpMethod = "POST")
-    public ResponseDTO insertCustomer(@RequestBody CustomerInfo customerInfo) {
+    public ResultVO insertCustomer(@RequestBody CustomerInfo customerInfo) {
         return customerService.insertCustomer(customerInfo);
     }
 
@@ -42,8 +42,8 @@ public class CustomerController {
      **/
     @PostMapping(value = "/login")
     @ApiOperation(value = "客户登录接口", tags = "客户登录接口",httpMethod = "POST")
-    public ResponseDTO customerLogin(@RequestParam(name = "userName") String userName,
-                                      @RequestParam(name = "passWord") String passWord) {
+    public ResultVO customerLogin(@RequestParam(name = "name") String userName,
+                                  @RequestParam(name = "password") String passWord) {
         return customerService.customerLoginOn(userName,passWord);
     }
 }

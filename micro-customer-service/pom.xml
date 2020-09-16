@@ -81,7 +81,6 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
         </dependency>
-        <!--mybatis-springboot-->
     </dependencies>
 
 

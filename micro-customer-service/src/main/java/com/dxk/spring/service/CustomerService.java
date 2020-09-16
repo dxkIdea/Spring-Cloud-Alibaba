@@ -1,7 +1,7 @@
 package com.dxk.spring.service;
 
 import com.dxk.spring.model.entity.CustomerInfo;
-import com.dxk.spring.dto.ResponseDTO;
+import com.dxk.spring.vo.ResultVO;
 
 /**
  * @ClassName: CustomerService
@@ -17,13 +17,13 @@ public interface CustomerService {
      * @Description: 添加客户
      * @Date: 2020/9/10 20:31
     **/
-    ResponseDTO insertCustomer(CustomerInfo customerInfo);
+    ResultVO insertCustomer(CustomerInfo customerInfo);
 
     /**
      * @Description: 客户登录接口
      * @date: 2020/9/12 22:51
      * @author: dingxingkai
      **/
-    ResponseDTO customerLoginOn(String userName, String passWord);
+    ResultVO customerLoginOn(String userName, String passWord);
 
 }

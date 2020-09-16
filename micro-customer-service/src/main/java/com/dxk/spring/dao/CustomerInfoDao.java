@@ -13,4 +13,10 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CustomerInfoDao extends BaseMapper<CustomerInfo> {
+    /**
+     * 通过客户名称查到客户详细信息
+     * @param name
+     * @return
+     */
+    CustomerInfo selectByName(String name);
 }
