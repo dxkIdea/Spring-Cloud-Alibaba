@@ -1,5 +1,8 @@
 package com.dxk.spring.annotations;
 
+import com.dxk.spring.conditions.SwaggerConfigCondition;
+import org.springframework.context.annotation.Conditional;
+
 import java.lang.annotation.*;
 
 /**
@@ -13,11 +16,12 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
+@Conditional(SwaggerConfigCondition.class)
 public @interface OpenSwagger2Config {
 
     /**
      * 是否开启Swagger2配置，true-开启，false-关闭
      * @return
      */
-    boolean openConfigStatus() default true;
+    String openConfigStatus() default "1";
 }
