@@ -1,16 +1,18 @@
 package com.dxk.spring.service.Impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dxk.spring.model.entity.CustomerInfo;
 import com.dxk.spring.dao.CustomerInfoDao;
-import com.dxk.spring.dto.ResponseDTO;
 import com.dxk.spring.enums.Status;
+import com.dxk.spring.model.entity.CustomerInfo;
 import com.dxk.spring.service.CustomerService;
+import com.dxk.spring.vo.ResultVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 /**
  * @ClassName: CustomerServiceImpl
@@ -20,6 +22,7 @@ import javax.annotation.Resource;
  * @Version: 1.0
  */
 @Service
+@Slf4j
 public class CustomerServiceImpl implements CustomerService {
     @Resource
     private RedisTemplate<String,Object> redisTemplate;
@@ -31,13 +34,12 @@ public class CustomerServiceImpl implements CustomerService {
      * @Date: 2020/9/10 20:37
     **/
     @Override
-    public ResponseDTO insertCustomer(CustomerInfo customerInfo) {
-        redisTemplate.opsForValue().set("注册客户","customer");
+    public ResultVO insertCustomer(CustomerInfo customerInfo) {
         int insert = customerInfoDao.insert(customerInfo);
         if (insert > 0) {
-            return ResponseDTO.SUCCESS(JSONObject.toJSON(customerInfo));
+            return ResultVO.success(JSONObject.toJSON(customerInfo));
         }else {
-            return ResponseDTO.FALL(Status.SERVERERROR.getCode(),"客户添加异常，请稍后重试！");
+            return ResultVO.fall(Status.SERVERERROR.getCode(),"客户添加异常，请稍后重试！");
         }
     }
 
@@ -50,11 +52,16 @@ public class CustomerServiceImpl implements CustomerService {
      * @author: dingxingkai
      **/
     @Override
-    public ResponseDTO customerLoginOn(String userName, String passWord) {
-        CustomerInfo customerInfo = CustomerInfo.builder()
-                .name(userName)
-                .passWord(passWord)
-                .build();
-        return ResponseDTO.SUCCESS(JSONObject.toJSON(customerInfo));
+    public ResultVO customerLoginOn(String userName, String passWord) {
+        Optional<CustomerInfo> customerInfo = Optional.ofNullable(customerInfoDao.selectByName(userName));
+        customerInfo.ifPresent(c -> {
+            boolean result = c.getPassword().equals(passWord);
+            if (result) {
+                log.info("查询出客户信息详情为：{}", JSONObject.toJSONString(customerInfo.get()));
+            }else {
+               log.info("密码验证失败");
+            }
+        });
+        return null;
     }
 }

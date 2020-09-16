@@ -1,5 +1,8 @@
 package com.dxk.spring.model.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,10 +22,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@TableName(value = "customer_info")
 public class CustomerInfo {
     /**
      * 主键ID
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -35,7 +40,7 @@ public class CustomerInfo {
      * 密码
      */
     @NotBlank(message = "密码不可为空")
-    private String passWord;
+    private String password;
 
     /**
      * 性别
