@@ -1,6 +1,5 @@
 package com.dxk.spring.config.swagger;
 
-import com.dxk.spring.annotations.OpenSwagger2Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,12 +25,11 @@ import java.util.ArrayList;
  */
 @EnableSwagger2
 @Configuration
+//@ConditionalOnExpression(value = "${swagger2.config.status}=1")
+//@ConditionalOnProperty(prefix = "swagger2.config",name = "status", havingValue = "1",matchIfMissing = true)
 public class SwaggerConfig {
     @Resource
     private SwaggerInfo swaggerInfo;
-
-    @Value(value = "${swagger2.config.status}")
-    private String configStatus;
 
     @Value(value = "${swagger2.apiInfo.basicPackage}")
     private String basicPackage;
@@ -40,7 +38,6 @@ public class SwaggerConfig {
      * 配置Swagger得 Docket bean实例
      * @return
      */
-    @OpenSwagger2Config(openConfigStatus = "0")
     @Bean
     @DependsOn(value = "SwaggerInfo")
     public Docket docket() {

@@ -1,0 +1,82 @@
+-- 客户端应用注册详情
+create table oauth_client_details (
+  client_id VARCHAR(256) PRIMARY KEY, -- 客户端应用的账号
+  resource_ids VARCHAR(256),		-- 客户端应用可访问的资源服务器列表,(空代表所有资源服务器都可以访问)
+  client_secret VARCHAR(256),	-- 客户端应用的密码
+  scope VARCHAR(256),	-- 资源服务器拥有的所有权限列表 (get add delete update)
+  authorized_grant_types VARCHAR(256), -- 客户端支持的授权码模式列表
+  web_server_redirect_uri VARCHAR(256), -- 授权码模式,申请授权码后重定向的uri.
+  authorities VARCHAR(256),
+  access_token_validity INTEGER,   -- 设置颁发token的有效期
+  refresh_token_validity INTEGER,  -- 颁发refresh_token的有效期(不设置不会同时颁发refresh_token)
+  additional_information VARCHAR(4096),
+  autoapprove VARCHAR(256)     -- 设置为true,授权码模式下自动授权
+);
+
+create table oauth_client_token (
+  token_id VARCHAR(256),
+  token BLOB,
+  authentication_id VARCHAR(256) PRIMARY KEY,
+  user_name VARCHAR(256),
+  client_id VARCHAR(256)
+);
+
+-- 基于session认证时,存放颁发的token
+create table oauth_access_token (
+  token_id VARCHAR(256),
+  token BLOB,
+  authentication_id VARCHAR(256) PRIMARY KEY,
+  user_name VARCHAR(256),
+  client_id VARCHAR(256),
+  authentication BLOB,
+  refresh_token VARCHAR(256)
+);
+
+create table oauth_refresh_token (
+  token_id VARCHAR(256),
+  token BLOB,
+  authentication BLOB
+);
+
+-- 授权码模式下,存放颁发的授权码
+create table oauth_code (
+  code VARCHAR(256), authentication BLOB
+);
+
+create table oauth_approvals (
+	userId VARCHAR(256),
+	clientId VARCHAR(256),
+	scope VARCHAR(256),
+	status VARCHAR(10),
+	expiresAt DATETIME,
+	lastModifiedAt DATETIME
+);
+
+-- 基于session认证时,并且采用分布式session
+CREATE TABLE SPRING_SESSION (
+   PRIMARY_ID CHAR(36) NOT NULL,
+   SESSION_ID CHAR(36) NOT NULL,
+   CREATION_TIME BIGINT NOT NULL,
+   LAST_ACCESS_TIME BIGINT NOT NULL,
+   MAX_INACTIVE_INTERVAL INT NOT NULL,
+   EXPIRY_TIME BIGINT NOT NULL,
+   PRINCIPAL_NAME VARCHAR(100),
+   CONSTRAINT SPRING_SESSION_PK PRIMARY KEY (PRIMARY_ID)
+ );
+
+ CREATE UNIQUE INDEX SPRING_SESSION_IX1 ON SPRING_SESSION (SESSION_ID);
+ CREATE INDEX SPRING_SESSION_IX2 ON SPRING_SESSION (EXPIRY_TIME);
+ CREATE INDEX SPRING_SESSION_IX3 ON SPRING_SESSION (PRINCIPAL_NAME);
+
+ CREATE TABLE SPRING_SESSION_ATTRIBUTES (
+  SESSION_PRIMARY_ID CHAR(36) NOT NULL,
+  ATTRIBUTE_NAME VARCHAR(200) NOT NULL,
+  ATTRIBUTE_BYTES BLOB NOT NULL,
+  CONSTRAINT SPRING_SESSION_ATTRIBUTES_PK PRIMARY KEY (SESSION_PRIMARY_ID, ATTRIBUTE_NAME),
+  CONSTRAINT SPRING_SESSION_ATTRIBUTES_FK FOREIGN KEY (SESSION_PRIMARY_ID) REFERENCES SPRING_SESSION(PRIMARY_ID) ON DELETE CASCADE
+ );
+
+ CREATE INDEX SPRING_SESSION_ATTRIBUTES_IX1 ON SPRING_SESSION_ATTRIBUTES (SESSION_PRIMARY_ID);
+
+ -- oauth_client_details表配置一个client客户端信息
+ INSERT INTO `oauth_client_details`(`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) VALUES ('burukeyou-user', NULL, '$2a$10$Qg.q5o1ZBVy/7TrV107u6ORr1Vyl.wm8AGU5tFcbpw2zPQuuxh82C', 'get,add', 'password,authorization_code,refresh_token', NULL, NULL, 60000, 300, NULL, NULL);
