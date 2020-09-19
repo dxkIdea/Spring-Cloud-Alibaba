@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/micro-basic-config.common/pom.xml" />
         <option value="$PROJECT_DIR$/micro-basic-datasource-starter/pom.xml" />
         <option value="$PROJECT_DIR$/micro-basic-datasource-starter1/pom.xml" />
+        <option value="$PROJECT_DIR$/micro-common-util/pom.xml" />
       </set>
     </option>
   </component>

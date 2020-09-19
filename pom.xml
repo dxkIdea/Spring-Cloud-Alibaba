@@ -9,13 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <description>基于SpringCloud Alibaba实现微服务架构</description>
     <modules>
-        <module>micro-customer-service</module>
         <module>micro-gateway-server</module>
         <module>micro-oauth-server</module>
-        <module>micro-common-service</module>
         <module>micro-basic-config</module>
-        <module>micro-sms-service</module>
-        <module>micro-email-service</module>
+        <module>mirco-business-service</module>
+        <module>micro-common</module>
     </modules>
     <packaging>pom</packaging>
 
