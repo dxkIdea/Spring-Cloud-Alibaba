@@ -10,8 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>micro-basic-config</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <description>每个微服务模块所共有的配置统一迁移至此模块，注意：一定是每个模块要需要的</description>
+    <modules>
+        <module>micro-basic-datasource-starter</module>
+        <module>micro-basic-swagger-doc-starter</module>
+        <module>micro-basic-swagger-doc-common</module>
+        <module>micro-basic-logging-starter</module>
+        <module>micro-basic-redis-starter</module>
+    </modules>
 
     <dependencies>
         <!--Spring 相关依赖-->

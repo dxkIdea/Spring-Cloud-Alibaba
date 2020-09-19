@@ -1,0 +1,3 @@
+#根据条件装配redis
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dxk.spring.configure.RedisAutoConfigure

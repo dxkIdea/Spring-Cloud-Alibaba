@@ -46,6 +46,16 @@
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
         <!--fastJson版本-->
         <fastJson-version>1.2.70</fastJson-version>
+        <!--SQL拦截、记录-->
+        <p6spy.version>3.9.1</p6spy.version>
+        <!--读写分离，主多-->
+        <dynamic-datasource.version>3.2.1</dynamic-datasource.version>
+        <!--knife4j-swagger相关-->
+        <knife4j.version>2.0.5</knife4j.version>
+        <!--swagger-model-->
+        <swagger-models.version>1.5.21</swagger-models.version>
+        <!--日志相关-->
+        <logstash-logback-encoder.version>6.4</logstash-logback-encoder.version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -127,6 +137,45 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastJson-version}</version>
+            </dependency>
+            <!--SQL拦截记录依赖-->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
+            </dependency>
+            <!--数据源（读写分离、主从）-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+            </dependency>
+            <!--knife4j-swagger配置相关-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-bean-validators</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-models.version}</version>
+            </dependency>
+            <!--logstash相关-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback-encoder.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
