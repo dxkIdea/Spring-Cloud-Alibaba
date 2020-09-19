@@ -8,16 +8,25 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="micro-email-service" />
-        <module name="micro-oauth-server" />
-        <module name="micro-basic-config" />
-        <module name="micro-gateway-server" />
+        <module name="micro-auth-service" />
+        <module name="micro-basic-redis-starter" />
         <module name="micro-common-service" />
         <module name="micro-customerInfo-service" />
         <module name="micro-customer-service" />
+        <module name="micro-basic-datasource-starter" />
+        <module name="micro-oauth-server" />
+        <module name="micro-basic-swagger-doc-starter" />
+        <module name="micro-gateway-server" />
+        <module name="micro-basic-swagger-doc-common" />
+        <module name="micro-basic-logging-starter" />
         <module name="micro-sms-service" />
+        <module name="micro-basic-config.common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="micro-auth-service" target="1.8" />
+      <module name="micro-basic-config.common" target="1.8" />
+      <module name="micro-basic-datasource-starter (1)" target="1.8" />
       <module name="micro-customerInfo-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>

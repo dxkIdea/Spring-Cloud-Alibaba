@@ -1,0 +1,4 @@
+#自动装配
+#自定义自动装配的配置类
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.dxk.spring.configure.SwaggerDocAutoConfigure

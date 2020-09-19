@@ -1,0 +1,36 @@
+2020-09-19 21:40:09 ERROR customer-service main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisService in com.dxk.spring.web.CustomerController required a bean of type 'com.dxk.spring.service.RedisService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.dxk.spring.service.RedisService' in your configuration.
+
+2020-09-19 21:41:25 ERROR customer-service main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisService in com.dxk.spring.web.CustomerController required a bean of type 'com.dxk.spring.service.RedisService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.dxk.spring.service.RedisService' in your configuration.
+

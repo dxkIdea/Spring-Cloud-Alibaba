@@ -1,0 +1,3 @@
+#AUTO CONFIGURATION ×Ô¶¯×°Åä
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dxk.spring.configure.LoggerConfigure

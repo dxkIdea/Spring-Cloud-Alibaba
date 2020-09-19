@@ -1,6 +1,7 @@
 package com.dxk.spring.web;
 
 import com.dxk.spring.model.entity.CustomerInfo;
+import com.dxk.spring.service.RedisService;
 import com.dxk.spring.vo.ResultVO;
 import com.dxk.spring.service.CustomerService;
 import io.swagger.annotations.Api;
@@ -23,6 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private RedisService redisService;
 
     /**
      * @Author: dingxingkai
@@ -30,7 +33,7 @@ public class CustomerController {
      * @Date: 2020/9/10 20:39
     **/
     @PostMapping(value = "/insertOne")
-    @ApiOperation(value = "添加新客户", tags = "客户注册",httpMethod = "POST")
+    @ApiOperation(value = "添加新客户",httpMethod = "POST", produces = "application/json;charset=UTF-8")
     public ResultVO insertCustomer(@RequestBody CustomerInfo customerInfo) {
         return customerService.insertCustomer(customerInfo);
     }
@@ -41,9 +44,11 @@ public class CustomerController {
      * @Date: 2020/9/10 20:39
      **/
     @PostMapping(value = "/login")
-    @ApiOperation(value = "客户登录接口", tags = "客户登录接口",httpMethod = "POST")
+    @ApiOperation(value = "客户登录接口",httpMethod = "POST")
     public ResultVO customerLogin(@RequestParam(name = "name") String userName,
                                   @RequestParam(name = "password") String passWord) {
+        Boolean set = redisService.set("dxk", "name");
+        System.out.println(set);
         return customerService.customerLoginOn(userName,passWord);
     }
 }
