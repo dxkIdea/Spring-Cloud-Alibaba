@@ -1,0 +1,32 @@
+version: "3"
+services:
+  #mysql主节点
+  mysql-master:
+    container_name: mysql-master
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      - D:\IT Environment\Docker-Volumes\mysql5.7-master\data:/var/lib/mysql
+      - D:\IT Environment\Docker-Volumes\mysql5.7-master\logs:/var/lib/mysql-logs
+    ports:
+      - "3307:3306"
+    restart: always
+    hostname: mysql-master
+
+  #熔断、限流
+  sentinel:
+    image: bladex/sentinel-dashboard:latest
+    container_name: sentinel
+    ports:
+      - "8858:8858"
+    restart: always
+
+  #redis
+  redis:
+    image: redis:latest
+    restart: always
+    container_name: redis
+    command: redis-server --requirepass 123456
+    ports:
+      - "6379:6379"
