@@ -14,6 +14,7 @@
         <module>micro-basic-config</module>
         <module>mirco-business-service</module>
         <module>micro-common</module>
+        <module>micro-mq-server</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -54,6 +55,8 @@
         <swagger-models.version>1.5.21</swagger-models.version>
         <!--日志相关-->
         <logstash-logback-encoder.version>6.4</logstash-logback-encoder.version>
+        <!--jwt工具包-->
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -174,6 +177,12 @@
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash-logback-encoder.version}</version>
+            </dependency>
+            <!--jwt工具包-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

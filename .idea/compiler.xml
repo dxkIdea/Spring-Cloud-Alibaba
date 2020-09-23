@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="micro-email-service" />
+        <module name="micro-mq-server" />
         <module name="micro-auth-service" />
         <module name="micro-basic-redis-starter" />
         <module name="micro-customerInfo-service" />
