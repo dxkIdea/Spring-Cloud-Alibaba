@@ -12,6 +12,8 @@
     <file url="file://$PROJECT_DIR$/micro-common/micro-common-util/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-gateway-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-gateway-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/micro-mq-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/micro-mq-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-oauth-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/micro-oauth-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mirco-business-service/micro-customer-service/src/main/java" charset="UTF-8" />
