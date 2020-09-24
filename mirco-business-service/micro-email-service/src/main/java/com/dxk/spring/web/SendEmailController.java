@@ -1,11 +1,14 @@
 package com.dxk.spring.web;
 
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import com.dxk.spring.dto.EmailInfoDTO;
+import com.dxk.spring.service.SimpleMailService;
+import com.dxk.spring.vo.ResultVO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @ClassName: EmailController
@@ -14,20 +17,23 @@ import javax.annotation.Resource;
  * @Author: dingxingkai
  * @Version: 1.0
  */
+@Api(tags = "发送邮件服务")
 @RestController
 public class SendEmailController {
+    @Autowired
+    private SimpleMailService simpleMailService;
 
-    @Resource
-    private JavaMailSender javaMailSender;
-
+    /**
+     * @Description: 发送普通邮件
+     * @param mailInfo: 邮件详细信息
+     * @return: com.dxk.spring.vo.ResultVO
+     * @date: 2020/9/24 17:46
+     * @author: dingxingkai
+     **/
     @PostMapping(value = "/sendSimpleMsg")
-    public void sendMailSimpleEmail() {
-        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom("979352276@qq.com");
-        simpleMailMessage.setTo("17600299358@163.com");
-        simpleMailMessage.setSubject("测试");
-        simpleMailMessage.setText("测试邮件");
-        javaMailSender.send(simpleMailMessage);
+    @ApiOperation(value = "普通邮件发送")
+    public ResultVO sendMailSimpleEmail(@RequestBody EmailInfoDTO mailInfo) {
+        return simpleMailService.sendSimpleEmail(mailInfo);
     }
 
 }
