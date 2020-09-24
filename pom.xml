@@ -24,7 +24,7 @@
         <!--Java 8-->
         <java.version>1.8</java.version>
         <!--Spring Boot版本-->
-        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <!--Spring Cloud版本-->
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <!--Spring Cloud Alibaba版本-->
@@ -57,6 +57,8 @@
         <logstash-logback-encoder.version>6.4</logstash-logback-encoder.version>
         <!--jwt工具包-->
         <jjwt.version>0.9.0</jjwt.version>
+        <!--security-jwt-->
+        <spring-security-jwt.version>1.1.1.RELEASE</spring-security-jwt.version>
     </properties>
 
     <!--管理SpringBoot、SpringCloud、SpringCloud-Alibaba的版本管理-->
@@ -183,6 +185,12 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+            <!--security-jwt-->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${spring-security-jwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

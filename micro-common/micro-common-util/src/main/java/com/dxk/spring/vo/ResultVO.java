@@ -43,6 +43,18 @@ public class ResultVO{
                 .resultMsg(Status.SUCCESS.getMessage())
                 .build();
     }
+    /**
+     * @Description: 成功
+     * @return: com.dxk.spring.dto.ResponseDTO
+     * @date: 2020/9/12 22:32
+     * @author: dingxingkai
+     **/
+    public static ResultVO success(String message) {
+        return ResultVO.builder()
+                .resultCode(Status.SUCCESS.getCode())
+                .resultMsg(message)
+                .build();
+    }
 
     /**
      * @Description: 成功
