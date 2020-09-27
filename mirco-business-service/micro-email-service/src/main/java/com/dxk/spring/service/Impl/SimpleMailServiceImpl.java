@@ -23,6 +23,7 @@ import javax.annotation.Resource;
 public class SimpleMailServiceImpl implements SimpleMailService {
     @Resource
     private JavaMailSender javaMailSender;
+
     /**
      * @Description: 发送普通邮件
      * @param emailInfoDTO: 邮件详细信息
