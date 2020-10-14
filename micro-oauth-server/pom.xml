@@ -42,15 +42,16 @@
             <groupId>com.nimbusds</groupId>
             <artifactId>nimbus-jose-jwt</artifactId>
         </dependency>
-        <!-- redis -->
-       <!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>-->
         <!--swagger配置模块-->
         <dependency>
             <groupId>com.dxk.springcloud</groupId>
             <artifactId>micro-basic-swagger-doc-starter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--redis 初始化-->
+        <dependency>
+            <groupId>com.dxk.springcloud</groupId>
+            <artifactId>micro-basic-redis-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

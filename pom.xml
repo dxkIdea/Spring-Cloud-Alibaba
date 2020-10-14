@@ -15,6 +15,7 @@
         <module>mirco-business-service</module>
         <module>micro-common</module>
         <module>micro-mq-server</module>
+        <module>micro-xxl-job-handler</module>
     </modules>
     <packaging>pom</packaging>
 

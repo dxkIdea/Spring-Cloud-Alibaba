@@ -11,6 +11,7 @@
         <module name="micro-mq-server" />
         <module name="micro-auth-service" />
         <module name="micro-basic-redis-starter" />
+        <module name="micro-xxl-job-handler" />
         <module name="micro-customerInfo-service" />
         <module name="micro-basic-datasource-starter" />
         <module name="micro-customer-service" />
@@ -20,6 +21,7 @@
         <module name="micro-gateway-server" />
         <module name="micro-basic-swagger-doc-common" />
         <module name="micro-basic-logging-starter" />
+        <module name="xxl-job-admin" />
         <module name="micro-basic-config.common" />
         <module name="micro-sms-service" />
       </profile>

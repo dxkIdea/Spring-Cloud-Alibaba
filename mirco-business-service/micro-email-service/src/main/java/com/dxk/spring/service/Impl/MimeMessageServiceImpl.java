@@ -43,6 +43,6 @@ public class MimeMessageServiceImpl implements MimeMessageService {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        return null;
+        return ResultVO.success();
     }
 }
